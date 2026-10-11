@@ -1,0 +1,61 @@
+# датасет и артефакты обучения
+train/
+test/
+yolo_data/
+runs/
+
+# веса моделей
+*.pt
+*.onnx
+*.engine
+
+# обученная модель и её контракт инференса входят в репозиторий
+!models/cars_yolo26s_best.pt
+!models/config.json
+
+# ноутбуки и их чекпоинты
+*.ipynb
+.ipynb_checkpoints/
+
+# ноутбук с обучением модели входит в репозиторий
+!notebooks/CarsObjectDetection.ipynb
+
+# эталонные снимки взяты из датасета, его лицензия не определена: в репозиторий идут только
+# JSON-эталоны, сами снимки скачиваются отдельно (README)
+data/samples/*.JPG
+data/samples/*.jpg
+
+# настройки ultralytics, каталог задаётся через YOLO_CONFIG_DIR
+data/ultralytics/
+
+# данные и выводы
+data/sites/
+data/*.db
+data/*.db-*
+data/crops/
+*.csv
+
+# кривые обучения из runs/ входят в репозиторий
+!training/*.csv
+
+# стандартное для Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+
+# внутренние рабочие заметки, в репозиторий не идут
+Memory.md
+
+# окружение и IDE
+.env
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db

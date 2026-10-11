@@ -1,0 +1,59 @@
+# сборка пакета через hatchling, исходники лежат в src/
+[build-system]
+requires = ["hatchling>=1.32"]
+build-backend = "hatchling.build"
+
+[project]
+name = "parkingscan"
+version = "0.1.0"
+description = "Parking occupancy from aerial images and ANPR from ground cameras"
+requires-python = ">=3.12"
+license = "AGPL-3.0-only"
+dependencies = [
+    "ultralytics>=8.4.159",
+    "sahi>=0.12.6",
+    "torch>=2.14",
+    "torchvision>=0.29",
+    "fast-alpr[onnx]>=0.4.0",
+    "open-image-models>=0.6.0",
+    "fast-plate-ocr>=1.1.0",
+    "fastapi>=0.141",
+    "uvicorn>=0.53",
+    "python-multipart>=0.0.32",
+    "pydantic>=2.13",
+    "pydantic-settings[yaml]>=2.15",
+    "sqlalchemy>=2.0.54",
+    # ultralytics тянет opencv-python, fast-alpr - headless-сборку; оба дают модуль cv2,
+    # поэтому версии закреплены одинаково, иначе один пакет подменит другой
+    "opencv-python==5.0.0.93",
+    "opencv-python-headless==5.0.0.93",
+    "numpy>=2.4",
+    "scikit-learn>=1.9",
+]
+
+# батч-режим без API: parkingscan <файл или папка>
+[project.scripts]
+parkingscan = "parkingscan.cli:main"
+
+# зависимости для разработки и тестов, httpx нужен для TestClient
+[dependency-groups]
+dev = [
+    "pytest>=9.1",
+    "httpx>=0.28",
+]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/parkingscan"]
+
+# torch с CUDA 13.0 для Windows и Linux, на остальных платформах - сборка с PyPI
+[tool.uv.sources]
+torch = [{ index = "pytorch-cu130", marker = "sys_platform == 'win32' or sys_platform == 'linux'" }]
+torchvision = [{ index = "pytorch-cu130", marker = "sys_platform == 'win32' or sys_platform == 'linux'" }]
+
+[[tool.uv.index]]
+name = "pytorch-cu130"
+url = "https://download.pytorch.org/whl/cu130"
+explicit = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

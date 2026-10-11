@@ -1,0 +1,256 @@
+{
+  "ec5a75f7-GOPR6537.JPG": [
+    {
+      "slot": 15,
+      "cell": "B2",
+      "ground": [
+        804.0,
+        557.3
+      ],
+      "conf": 0.793,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 16,
+      "cell": "B2",
+      "ground": [
+        887.6,
+        615.2
+      ],
+      "conf": 0.863,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 17,
+      "cell": "C2",
+      "ground": [
+        1150.7,
+        663.6
+      ],
+      "conf": 0.878,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 18,
+      "cell": "C2",
+      "ground": [
+        1372.4,
+        566.4
+      ],
+      "conf": 0.814,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 19,
+      "cell": "D2",
+      "ground": [
+        1689.0,
+        581.7
+      ],
+      "conf": 0.868,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 20,
+      "cell": "F2",
+      "ground": [
+        2763.7,
+        643.6
+      ],
+      "conf": 0.895,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 21,
+      "cell": "G2",
+      "ground": [
+        3301.0,
+        612.2
+      ],
+      "conf": 0.788,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 22,
+      "cell": "H2",
+      "ground": [
+        3852.0,
+        582.2
+      ],
+      "conf": 0.769,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 23,
+      "cell": "H2",
+      "ground": [
+        3925.5,
+        690.6
+      ],
+      "conf": 0.768,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 24,
+      "cell": "B2",
+      "ground": [
+        834.9,
+        906.4
+      ],
+      "conf": 0.878,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 25,
+      "cell": "C2",
+      "ground": [
+        1313.8,
+        797.9
+      ],
+      "conf": 0.911,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 27,
+      "cell": "G2",
+      "ground": [
+        3302.8,
+        821.2
+      ],
+      "conf": 0.934,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 28,
+      "cell": "H2",
+      "ground": [
+        3957.0,
+        804.1
+      ],
+      "conf": 0.645,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 29,
+      "cell": "A3",
+      "ground": [
+        78.6,
+        1218.9
+      ],
+      "conf": 0.797,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 30,
+      "cell": "A3",
+      "ground": [
+        434.6,
+        1209.9
+      ],
+      "conf": 0.871,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 31,
+      "cell": "G3",
+      "ground": [
+        3287.8,
+        1109.6
+      ],
+      "conf": 0.93,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 32,
+      "cell": "E4",
+      "ground": [
+        2192.9,
+        1709.5
+      ],
+      "conf": 0.89,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 33,
+      "cell": "G6",
+      "ground": [
+        3092.3,
+        2873.5
+      ],
+      "conf": 0.922,
+      "source": "draft_car_box"
+    }
+  ],
+  "90a19daa-GOPR6757.JPG": [
+    {
+      "slot": 36,
+      "cell": "G2",
+      "ground": [
+        3151.7,
+        712.5
+      ],
+      "conf": 0.848,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 37,
+      "cell": "G2",
+      "ground": [
+        3155.1,
+        560.0
+      ],
+      "conf": 0.825,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 38,
+      "cell": "G2",
+      "ground": [
+        3128.0,
+        800.1
+      ],
+      "conf": 0.867,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 39,
+      "cell": "C3",
+      "ground": [
+        1258.9,
+        1035.3
+      ],
+      "conf": 0.92,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 40,
+      "cell": "B3",
+      "ground": [
+        872.6,
+        1454.7
+      ],
+      "conf": 0.913,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 41,
+      "cell": "C4",
+      "ground": [
+        1229.9,
+        1734.3
+      ],
+      "conf": 0.902,
+      "source": "draft_car_box"
+    },
+    {
+      "slot": 42,
+      "cell": "F5",
+      "ground": [
+        2619.7,
+        2438.4
+      ],
+      "conf": 0.874,
+      "source": "draft_car_box"
+    }
+  ]
+}

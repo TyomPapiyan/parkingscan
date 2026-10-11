@@ -1,0 +1,33 @@
+# контекст сборки - корень репозитория; в образ идут только pyproject.toml, uv.lock, src,
+# configs и models, всё остальное в контекст не отправляется
+
+# окружение и кеши
+.venv/
+venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+build/
+dist/
+*.egg-info/
+
+# данные монтируются томом, в образ не копируются
+data/
+
+# артефакты обучения, ноутбук, тесты и документация образу не нужны
+training/
+notebooks/
+tests/
+docs/
+*.md
+LICENSE
+
+# git, окружение и IDE
+.git/
+.gitignore
+.env
+.env.example
+.vscode/
+.idea/

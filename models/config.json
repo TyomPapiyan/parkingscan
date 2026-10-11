@@ -1,0 +1,19 @@
+{
+  "model_file": "cars_yolo26s_best.pt",
+  "base_model": "yolo26s.pt",
+  "scale": 0.5,
+  "tile": 640,
+  "overlap": 0.25,
+  "postprocess": {
+    "postprocess_type": "NMS",
+    "postprocess_match_metric": "IOS",
+    "postprocess_match_threshold": 0.6
+  },
+  "vis_conf": 0.3158101439476013,
+  "val_metrics": {
+    "mAP50": 0.8580170787416141,
+    "mAP50_95": 0.6130429281495735,
+    "best_F1": 0.8441121495323948,
+    "best_conf": 0.3158101439476013
+  }
+}

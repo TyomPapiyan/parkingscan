@@ -1,0 +1,22 @@
+# Запуск из корня репозитория:
+#   docker compose -f docker/docker-compose.yml up
+
+services:
+  # сервис на CPU
+  parkingscan:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: parkingscan:cpu
+    ports:
+      - "8000:8000"
+    # калибровки площадок и настройки ultralytics живут на хосте
+    volumes:
+      - ../data:/app/data
+    # модель загружается и прогревается при старте, до этого /health не отвечает
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health')"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 120s
