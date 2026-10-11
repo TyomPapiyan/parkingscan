@@ -307,7 +307,16 @@ The response of `/occupancy/detect` for the first screenshot, with the slot list
   "calibration_reason": null,
   "calibration_coverage": 1.0,
   "rows": [{"row": 0, "total": 6, "occupied": 3}],
-  "slots": [{"slot_id": "r0_s00", "occupied": true, "confirmed": true, "conf": 0.8246, "source": "projected", "polygon": "..."}],
+  "slots": [
+    {
+      "slot_id": "r0_s00",
+      "occupied": true,
+      "confirmed": true,
+      "conf": 0.8246,
+      "source": "projected",
+      "polygon": [[3278.6, 512.7], [3031.2, 545.7], [2943.9, 683.3], [3267.8, 640.1]]
+    }
+  ],
   "inference_ms": 838
 }
 ```
@@ -330,7 +339,7 @@ slot recall above measures.
 uv run pytest -q
 ```
 
-The 21 tests are synthetic and need neither a GPU nor the model weights. Two manual checks need the
+The 22 tests are synthetic and need neither a GPU nor the model weights. Two manual checks need the
 weights and the frames from the dataset:
 
 ```bash

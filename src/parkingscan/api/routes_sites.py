@@ -4,6 +4,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Annotated
 
+import numpy as np
 from fastapi import APIRouter, File, HTTPException, UploadFile, status
 from fastapi import Path as PathParam
 
@@ -43,6 +44,12 @@ def load_site(settings: Settings, site_id: str) -> SiteCalibration:
     return SiteCalibration.model_validate_json(path.read_text(encoding="utf-8"))
 
 
+# координаты для JSON с точностью 0.1 px; перед округлением массив приводится к float64:
+# округлённое значение float32 при переводе в float даёт шум вида 3278.60009765625
+def rounded(points: np.ndarray) -> list:
+    return points.astype(np.float64).round(1).tolist()
+
+
 # места калибровки в формате API и файла
 def slot_models(calibration: Calibration) -> list[SlotModel]:
     return [
@@ -50,7 +57,7 @@ def slot_models(calibration: Calibration) -> list[SlotModel]:
             slot_id=f"r{slot.row}_s{slot.index:02d}",
             row=slot.row,
             index=slot.index,
-            polygon=slot.polygon.round(1).tolist(),
+            polygon=rounded(slot.polygon),
             confidence=round(slot.confidence, 3),
             source=slot.source,
             confirmed=slot.confirmed,
@@ -73,10 +80,10 @@ def to_site(
         status=calibration.status,
         reason=calibration.reason,
         calibration_coverage=round(calibration.coverage, 4),
-        zone_polygon=calibration.markings.zone_polygon.round(1).tolist(),
+        zone_polygon=rounded(calibration.markings.zone_polygon),
         params=settings.calibration.model_dump(),
         rows=[
-            RowModel(row=row.index, dividers=row.dividers.round(1).tolist(), sources=row.sources)
+            RowModel(row=row.index, dividers=rounded(row.dividers), sources=row.sources)
             for row in calibration.rows
         ],
         slots=slot_models(calibration),

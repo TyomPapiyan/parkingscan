@@ -2,6 +2,7 @@ import cv2
 import numpy as np
 import pytest
 
+from parkingscan.api.routes_sites import slot_models
 from parkingscan.config import CalibrationSettings
 from parkingscan.core.calibration import Calibration, calibrate
 from parkingscan.core.geometry import contains, ground_points
@@ -160,6 +161,13 @@ def test_wide_pair_is_rejected() -> None:
     result = calibrate(image, boxes, CalibrationSettings(), GROUND_OFFSET)
     assert result.status == "failed"
     assert result.reason == "no_rows"
+
+
+# координаты мест уходят в JSON с точностью 0.1 px, без шума float32 вида 3278.60009765625
+def test_slot_coordinates_are_rounded_for_json(result: Calibration) -> None:
+    for slot in slot_models(result):
+        for point in slot.polygon:
+            assert point == [round(value, 1) for value in point]
 
 
 # пустой кадр без машин: отказ с причиной, без исключения
